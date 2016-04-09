@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <Extern href="stdidcmd.h"/>
+  <Extern href="vsshlids.h"/>
+
+  <Commands package="guidCMakeListsTxtCommandPackage">
+    <Groups>
+      <Group guid="guidCMakeListsTxtCommandPackageCmdSet"
+             id="GenerateCMakeListsGroup"
+             priority="0x0600">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_SOLNNODE"/>
+      </Group>
+    </Groups>
+    
+    <Buttons>
+      <Button guid="guidCMakeListsTxtCommandPackageCmdSet"
+              id="CMakeListsTxtCommandId"
+              priority="0x0100"
+              type="Button"
+              >
+        <Parent guid="guidCMakeListsTxtCommandPackageCmdSet" id="GenerateCMakeListsGroup" />
+        <!--<Icon guid="guidImages" id="bmpPic1" /> -->
+        <Strings>
+          <ButtonText>Make CMakeLists.txt</ButtonText>
+        </Strings>
+      </Button>
+    </Buttons>
+
+    <!--The bitmaps section is used to define the bitmaps that are used for the commands.-->
+    <Bitmaps>
+      <!--  The bitmap id is defined in a way that is a little bit different from the others:
+            the declaration starts with a guid for the bitmap strip, then there is the resource id of the
+            bitmap strip containing the bitmaps and then there are the numeric ids of the elements used
+            inside a button definition. An important aspect of this declaration is that the element id
+            must be the actual index (1-based) of the bitmap inside the bitmap strip. -->
+      <Bitmap guid="guidImages" href="Resources\CMakeListsTxtCommand.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough"/>
+    </Bitmaps>
+  </Commands>
+
+  <Symbols>
+    <!-- This is the package guid. -->
+    <GuidSymbol name="guidCMakeListsTxtCommandPackage" value="{6391208a-e789-42c4-90dc-6d8a12ee7ee6}" />
+
+    <!-- This is the guid used to group the menu commands together -->
+    <GuidSymbol name="guidCMakeListsTxtCommandPackageCmdSet" value="{224d1ac0-74a3-4f63-9759-b5a7ca5b6681}">
+      <IDSymbol name="GenerateCMakeListsGroup" value="0x1020" />
+      <IDSymbol name="CMakeListsTxtCommandId" value="0x0100" />
+    </GuidSymbol>
+
+    <GuidSymbol name="guidImages" value="{98a8d6db-a91e-46e6-9a3a-85aa97af86eb}" >
+      <IDSymbol name="bmpPic1" value="1" />
+      <IDSymbol name="bmpPic2" value="2" />
+      <IDSymbol name="bmpPicSearch" value="3" />
+      <IDSymbol name="bmpPicX" value="4" />
+      <IDSymbol name="bmpPicArrows" value="5" />
+      <IDSymbol name="bmpPicStrikethrough" value="6" />
+    </GuidSymbol>
+  </Symbols>
+</CommandTable>
